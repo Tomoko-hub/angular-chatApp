@@ -27,7 +27,12 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "firebase",
+              "@firebase/auth",
+              "@firebase/database"
+            ]
           },
           "configurations": {
             "production": {
@@ -118,8 +123,13 @@
               "devServerTarget": "angular-chat:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "angular-chat"
 }

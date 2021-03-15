@@ -1,11 +1,11 @@
 <div class="container">
-  <form>
+  <form #form="ngForm" (ngSubmit)="signup(form)">
     <h2 class="heading text-center">Create your account</h2>
     <div class="form-group">
-      <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+      <input ngModel type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
     </div>
     <div class="form-group">
-      <input type="password" name="password" class="form-control" placeholder="password" required>
+      <input ngModel type="password" name="password" class="form-control" placeholder="password" required>
     </div>
     <button class="btn btn-lg btn-primary" type="submit">Sign up</button>
   </form>

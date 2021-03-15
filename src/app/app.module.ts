@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -14,7 +15,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   declarations: [
     AppComponent,
     ChatComponent,
-    SignUpComponent
+    SignUpComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

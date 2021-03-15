@@ -6,9 +6,19 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class AuthService {
 
-  constructor(private ofAuth: AngularFireAuth) { }
+  constructor(private ofAuth: AngularFireAuth) {
 
-  create(email: string, password: string): Promise<firebase.auth.UserCredential> {
-    return this.ofAuth.createUserWithEmailAndPassword(email, password);
+   }
+
+  create(email: string, password: string): Promise<void> {
+    return this.ofAuth.createUserWithEmailAndPassword(email, password)
+      .then((credential) => {
+        const { user } = credential;
+        const actionCodesettings = {
+          url: `http://localhost:4200/?newAccount=true&email=${user.email}`
+        };
+
+        user.sendEmailVerification(actionCodesettings);
+      });
   }
 }

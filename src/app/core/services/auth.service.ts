@@ -6,12 +6,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class AuthService {
 
-  constructor(private ofAuth: AngularFireAuth) {
+  constructor(private afAuth: AngularFireAuth) {
 
    }
 
   create(email: string, password: string): Promise<void> {
-    return this.ofAuth.createUserWithEmailAndPassword(email, password)
+    return this.afAuth.createUserWithEmailAndPassword(email, password)
       .then((credential) => {
         const { user } = credential;
         const actionCodesettings = {
@@ -20,5 +20,14 @@ export class AuthService {
 
         user.sendEmailVerification(actionCodesettings);
       });
+  }
+
+  login(email: string, password: string): Promise<firebase.auth.UserCredential | void> {
+    return this.afAuth.signInWithEmailAndPassword(email, password)
+      .catch(error => console.error(error));
+  }
+
+  logout(): Promise<void> {
+    return this.afAuth.signOut();
   }
 }

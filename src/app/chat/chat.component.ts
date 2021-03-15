@@ -6,8 +6,8 @@ import { map } from 'rxjs/operators';
 import { Comment } from '../class/comment';
 import { User } from '../class/user';
 
-const CURRENT_USER: User = new User(1, '五十川 洋平');
-const ANOTHER_USER: User = new User(2, '竹井 賢治');
+const CURRENT_USER: User = new User(1, 'Tomoko Uehara');
+const ANOTHER_USER: User = new User(2, 'Mika Peisa');
 
 @Component({
   selector: 'ac-chat',

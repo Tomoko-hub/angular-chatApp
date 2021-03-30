@@ -3,10 +3,9 @@ import { AngularFireDatabase, AngularFireList, SnapshotAction } from '@angular/f
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Comment } from '../class/comment';
-import { User } from '../class/user';
+import { Comment } from '../../core/models/comment';
+import { User } from '../../core/models/user';
 import { AngularFireAuth } from '@angular/fire/auth';
-import * as firebase from 'firebase';
 
 @Component({
   selector: 'ac-chat',
@@ -19,7 +18,7 @@ export class ChatComponent implements OnInit {
   commentsRef: AngularFireList<Comment>;
   currentUser: User;
   currentUser$: Observable<User>;
-  comment = "";
+  comment = '';
 
   constructor(
     private afAuth: AngularFireAuth,

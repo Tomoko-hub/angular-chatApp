@@ -1,5 +1,3 @@
-import * as firebase from "firebase";
-
 export class User {
   displayName: string;
   email: string;
@@ -7,7 +5,7 @@ export class User {
   uid: string;
   initial: string;
 
-  constructor (user: firebase.User) {
+  constructor (user: User | firebase.User) {
     this.uid = user.uid;
     this.displayName = user.displayName;
     this.email = user.email;
